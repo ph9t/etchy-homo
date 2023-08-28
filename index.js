@@ -4,6 +4,8 @@ const modeList = document.querySelectorAll('ul li')
 
 let currentMode = 'classic'
 
+window.addEventListener('load', createGrid)
+
 /* allows for changing current mode */
 modeList.forEach(mode => {
   mode.addEventListener(
