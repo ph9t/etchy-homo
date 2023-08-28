@@ -2,6 +2,9 @@ const style = getComputedStyle(document.body)
 const etchGrid = document.getElementById('etch-grid')
 const modeList = document.querySelectorAll('ul li')
 
+const gridSizeSlider = document.getElementById('grid-size-slider')
+const eraserSlider = document.getElementById('eraser-slider')
+
 let currentMode = 'classic'
 
 window.addEventListener('load', createGrid)
@@ -24,6 +27,16 @@ modeList.forEach(mode => {
 /* change cursor to crosshair when hovering over the grid */
 etchGrid.addEventListener('mouseenter', function () {
   this.style['cursor'] = 'crosshair'
+})
+
+gridSizeSlider.addEventListener('change', e => {
+  const gridSize = e.target.value
+
+  eraserSlider.setAttribute('max', gridSize)
+  eraserSlider.setAttribute('value', gridSize)
+
+  document.documentElement.style.setProperty('--square-number', gridSize)
+  createGrid()
 })
 
 function createGrid() {
