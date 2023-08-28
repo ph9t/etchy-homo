@@ -4,6 +4,7 @@ const modeList = document.querySelectorAll('ul li')
 
 const gridSizeSlider = document.getElementById('grid-size-slider')
 const eraserSlider = document.getElementById('eraser-slider')
+const clearGridBtn = document.getElementById('clear-grid')
 
 let currentMode = 'classic'
 
@@ -37,6 +38,10 @@ gridSizeSlider.addEventListener('change', e => {
 
   document.documentElement.style.setProperty('--square-number', gridSize)
   createGrid()
+})
+
+clearGridBtn.addEventListener('click', () => {
+  clearGrid()
 })
 
 function createGrid() {
