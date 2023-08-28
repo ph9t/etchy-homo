@@ -4,6 +4,7 @@ const modeList = document.querySelectorAll('ul li')
 
 const gridSizeSlider = document.getElementById('grid-size-slider')
 const eraserSlider = document.getElementById('eraser-slider')
+const toggleGridBtn = document.getElementById('toggle-grid')
 const clearGridBtn = document.getElementById('clear-grid')
 
 let currentMode = 'classic'
@@ -49,6 +50,18 @@ eraserSlider.addEventListener('input', e => {
   column.forEach(cell => {
     cell.style['background-color'] = ''
   })
+})
+
+toggleGridBtn.addEventListener('click', () => {
+  let gridLinesOn =
+    style.getPropertyValue('--border-style') === 'dashed' ? true : false
+
+  toggleGridBtn.textContent = `Gridlines ${gridLinesOn ? 'On' : 'Off'}`
+
+  document.documentElement.style.setProperty(
+    '--border-style',
+    gridLinesOn ? 'none' : 'dashed'
+  )
 })
 
 clearGridBtn.addEventListener('click', () => {
