@@ -40,6 +40,17 @@ gridSizeSlider.addEventListener('change', e => {
   createGrid()
 })
 
+eraserSlider.addEventListener('input', e => {
+  const columnIdx = e.target.value
+  const column = document.querySelectorAll(
+    `#etch-grid div[id$='-${columnIdx}']`
+  )
+
+  column.forEach(cell => {
+    cell.style['background-color'] = ''
+  })
+})
+
 clearGridBtn.addEventListener('click', () => {
   clearGrid()
 })
