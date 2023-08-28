@@ -7,14 +7,71 @@
     <link href="./styles.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="etch-grid">
-      <img
-        id="grid-border"
-        src="./images/picture-frame.png"
-        alt="A picture frame"
-      />
+    <div class="main-container">
+      <div id="menu-container">
+        <a href="https://github.com/ph9t"><pre id="link-title"></pre></a>
+        <img
+          id="angel-sculpture"
+          src="./images/sculpture.png"
+          alt="marble sculpture of a little angel"
+        />
+        <div id="menu-options">
+          <ul>
+            <li id="classic">
+              <div>Classic</div>
+              <div>ᜆ</div>
+            </li>
+            <hr />
+            <li id="rainbow">
+              <div>Rainbow</div>
+              <div>ᜃ</div>
+            </li>
+            <hr />
+            <li id="intuitive">
+              <div>Intuitive</div>
+              <div>ᜊ</div>
+            </li>
+          </ul>
+        </div>
+        <div id="controls">
+          <div>
+            <button id="toggle-grid">Gridlines Off</button>
+            <div>
+              <label for="grid-size-slider">Grid Size:</label>
+              <input
+                id="grid-size-slider"
+                type="range"
+                min="16"
+                max="100"
+                value="16"
+              />
+            </div>
+          </div>
+          <div>
+            <button id="clear-grid">Clear</button>
+            <div>
+              <label for="eraser-slider">Eraser: </label>
+              <input
+                id="eraser-slider"
+                type="range"
+                min="1"
+                max="16"
+                value="16"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="etch-container">
+        <div id="etch-grid">
+          <img
+            id="grid-border"
+            src="./images/picture-frame.png"
+            alt="A picture frame"
+          />
+        </div>
+      </div>
     </div>
-    <button id="toggle-grid">Toggle Grid</button>
     <script src="./index.js"></script>
   </body>
 </html>

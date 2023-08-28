@@ -1,6 +1,12 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #f9f6f2;
+}
+
 :root {
   --etch-width: 550px;
-  --squareNumber: 64;
+  --square-number: 16;
 
   --border-val-top: 51.5px;
   --border-val-bottom: 51.5px;
@@ -8,6 +14,128 @@
   --border-val-right: 61px;
 
   --border-style: dashed;
+}
+
+/* root flexbox */
+.main-container {
+  display: flex;
+  height: 100vh;
+}
+
+#menu-container,
+#etch-container {
+  width: 50%;
+  display: flex;
+}
+
+/* first item of the root flexbox */
+#menu-container {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+
+  position: relative;
+}
+
+#angel-sculpture {
+  height: auto;
+  width: 150px;
+  z-index: 2;
+}
+
+a, a:visited, a:hover, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+#link-title {
+  font-size: 10rem;
+  font-family: 'Palatino';
+
+  position: absolute;
+  top: -5rem;
+  left: 5rem;
+  z-index: 1;
+}
+
+#link-title:after {
+  content: 'etchy   \A     homo.';
+  transition: content 2s ease-in-out;
+}
+
+#link-title:hover:after {
+  content: 'angel\A   jimenez.';
+}
+
+#link-title:hover {
+  cursor: url(images/pointer.png), auto;
+}
+
+#menu-options {
+  padding: 10px;
+  margin: 10px;
+
+  align-self: stretch;
+}
+
+#menu-options ul {
+  margin: 0px;
+  padding: 0px;
+
+  list-style-type: none;
+}
+
+#menu-options li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px;
+
+}
+
+#menu-options li:hover {
+  cursor: url(images/pointer.png), auto;
+  color: red;
+}
+
+#menu-options hr {
+  border: 0.5px solid #cfcfc4;
+}
+
+#controls {
+  align-self: stretch;
+}
+
+#controls > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+#controls div button { 
+  width: 100px;
+}
+
+#controls div button:hover { 
+  color: red;
+}
+
+/* second item of the root flexbox */
+#etch-container {
+  justify-content: center;
+  align-items: center;
 }
 
 #etch-grid {
@@ -30,9 +158,11 @@
 
   position: relative;
   z-index: 1;
+
+  background-color: white;
 }
 
-img#grid-border {
+#grid-border {
   width: var(--etch-width);
   height: auto;
 
@@ -47,10 +177,10 @@ img#grid-border {
   border: 0.01em grey var(--border-style);
   width: calc(
     (var(--etch-width) - (var(--border-val-left) + var(--border-val-right))) /
-      var(--squareNumber)
+      var(--square-number)
   );
   height: calc(
     (var(--etch-width) - (var(--border-val-top) + var(--border-val-bottom))) /
-      var(--squareNumber)
+      var(--square-number)
   );
 }
