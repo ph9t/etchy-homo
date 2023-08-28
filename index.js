@@ -21,6 +21,11 @@ modeList.forEach(mode => {
   )
 })
 
+/* change cursor to crosshair when hovering over the grid */
+etchGrid.addEventListener('mouseenter', function () {
+  this.style['cursor'] = 'crosshair'
+})
+
 function createGrid() {
   let width = Number(style.getPropertyValue('--square-number'))
 
