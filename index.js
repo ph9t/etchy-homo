@@ -9,7 +9,7 @@ const clearGridBtn = document.getElementById('clear-grid')
 
 let currentMode = 'classic'
 
-window.addEventListener('load', () => createGrid)
+window.addEventListener('load', () => createGrid())
 
 /* allows for changing current mode */
 modeList.forEach(mode => {
