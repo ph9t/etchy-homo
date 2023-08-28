@@ -25,6 +25,16 @@ function randomColor() {
   return `rgb(${red}, ${green}, ${blue})`
 }
 
+function adjustIntensity(color, adjustment) {
+  let alpha = Number(color.replace(/rgba?\(0, 0, 0, ([0-9.]+)\)/, '$1'))
+
+  if (alpha < 1) {
+    alpha += adjustment
+  }
+
+  return alpha === NaN ? 'rgb(0, 0, 0)' : `rgba(0, 0, 0, ${alpha})`
+}
+
 function clearGrid() {
   const etchGridSquare = document.querySelectorAll('#etch-grid div')
 
